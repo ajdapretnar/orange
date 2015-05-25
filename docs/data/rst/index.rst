@@ -34,29 +34,9 @@ In a Nutshell
 Data from Excel
 ---------------
 
-Say we have the data (:download:`sample.xlsx <sample.xlsx>`) in some popular
-spreadsheet application, like Excel:
+The new Orange 3.0 allows direct upload from Excel files.
 
-.. image:: spreadsheet.png
-   :scale: 80%
-
-To move this data to Orange, we need to save the file in a tab or comma
-separated format. In Excel, we can use a **Save As ...**
-command from the **File** menu:
-
-.. image:: save-as.png
-   :scale: 80%
-
-and select **Comma Separated Values (.csv)** as an output format:
-
-.. image:: save-as-csv.png
-   :scale: 80%
-
-We can now save the data in, say, a file named
-:download:`sample.csv <sample.csv>`.
-
-To load the data set in Orange,
-we can design a simple workflow with File and Data Table widget,
+To load the data set in Orange, we can design a simple workflow with File and Data Table widget,
 
 .. image:: file-data-table-workflow.png
    :scale: 80%
@@ -67,13 +47,7 @@ on the file browser icon,
 .. image:: file-browser-icon.png
    :scale: 80%
 
-change the file type selector to csv,
-
-.. image:: csv-selector.png
-   :scale: 80%
-
-locate the data file sample.csv which we have saved from Excel
-and open it. The **File** widget should now look something like this:
+locate the Excel data file sample.xlsx and open it. The **File** widget should now look something like this:
 
 .. image:: file-widget.png
    :scale: 80%
