@@ -102,7 +102,7 @@ columns are special. One way to do this within Orange is through
 
 Opening the :ref:`Select Attributes` widget reveals that in our input data file
 all seven column are treated as ordinary attributes (input variables), with the
-only distinction that the first two variables are categorical (discrete)
+only distinction being that the first two variables are categorical (discrete)
 and the other two are real-valued (continuous):
 
 .. image:: select-attributes-start.png
@@ -118,25 +118,25 @@ The :ref:`Select Attributes` widget should now look like this:
 Change of attribute types in :ref:`Select Attribute` widget should be confirmed by
 clicking the **Apply** button. The data from this widget is fed into
 :ref:`Data Table`
-widget, that now renders the class and meta attribute in a color different
+widget, that now renders class and meta attributes in a color different
 from those for input features:
 
 .. image:: data-table-with-class.png
    :scale: 80%
 
-We could also define the domain for this data set in some different way. Say,
+We could also define the domain for this data set in a different way. Say,
 we could make the data set ready for regression, and use ``heat 0`` as
 a continuous class variable,
 keep gene function and name as meta variables, and remove
 ``heat 10`` and ``heat 20`` from the data set (making these two attributes
-available for type assignment, but not including them in the data on the output
+available for type assignment, without including them in the data on the output
 of :ref:`Select Attributes` widget):
 
 .. image:: select-attributes-regression.png
    :scale: 80%
 
-Under the above setting of attributes the rending of the data in the Data Table
-widget looks like the following:
+By setting the attributes as above, the rending of the data in the Data Table
+widget looks like this:
 
 .. image:: data-table-regression.png
    :scale: 80%
@@ -150,13 +150,13 @@ Comma Separated Values file. Let us open the
 however, we will augment the names of the attributes with prefix characters
 expressing attribute type (class or meta attribute) and/or its domain
 (continuous, discrete, string), and separate them from the attribute name
-with a hash sign ("#"). For the type, the abbreviations are:
+with a hash sign ("#"). Abbreviations for the type are:
 
 - c: class attribute
 - m: meta attribute
 - i: ignore the attribute
 
-and abbreviations for the domain are:
+and for the domain:
 
 - C: Continuous
 - D: Discrete
@@ -177,7 +177,7 @@ widget, and set the **Header** to **Orange simplified header**:
 .. image:: file-widget-simplified-header.png
    :scale: 80%
 
-Notice that the attributes that we have ignored (label "i" in the attribute
+Notice that the attributes we have ignored (label "i" in the attribute
 name) are not present in the data set.
 
 Native Data Format of Orange
@@ -195,7 +195,7 @@ example:
 The above screenshot is from Excel, but the file was actually saved
 using "Tab Delimited Text (.txt)" format.
 To open it in Orange, we have to rename
-the file such that it ends with ".tab" extension (say from sample.txt to
+the file so that it ends with ".tab" extension (say from sample.txt to
 :download:`sample.tab <sample.tab>`). In Windows, one can bypass this step
 by placing the name of the file and the .tab extension in quotes when using
 **Save As ...** command (e.g., "sample.tab").
