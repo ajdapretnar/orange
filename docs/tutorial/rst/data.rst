@@ -1,9 +1,9 @@
-The Data
+Data
 ========
 
 .. index: data
 
-This section describes how to load and save the data. We also show how to explore the data, its domain description, how to report on basic data set statistics, and how to sample the data.
+This section describes how to load and save the data into your Orange project. Moreover, you will learn how to explore the data, its domain description, how to report on basic data set statistics, and how to sample the data.
 
 Data Input
 ----------
@@ -11,7 +11,7 @@ Data Input
 .. index:: 
    single: data; input
 
-Orange can read files in native and other data formats. Native format starts with feature (attribute) names, their type (continuous, discrete, string). The third line contains meta information to identify dependent features (class), irrelevant features (ignore) or meta features (meta). Here are the first few lines from a data set :download:`lenses.tab <code/lenses.tab>` on prescription of eye
+Orange can read files in native and other data formats. Native format starts with feature (attribute) names and their type (continuous, discrete, string). The third line contains meta information to identify dependent features (class), irrelevant features (ignore) or meta features (meta). Here are the first few lines from a data set :download:`lenses.tab <code/lenses.tab>` on prescription of eye
 lenses [CJ1987]::
 
    age       prescription  astigmatic    tear_rate     lenses
@@ -24,7 +24,7 @@ lenses [CJ1987]::
    young     hypermetrope  no            reduced       none
 
 
-Values are tab-limited. The data set has four attributes (age of the patient, spectacle prescription, notion on astigmatism, and information on tear production rate) and an associated three-valued dependent variable encoding lens prescription for the patient (hard contact lenses, soft contact lenses, no lenses). Feature descriptions could use one letter only, so the header of this data set could also read::
+Values are tab-limited. The data set has four attributes (age of the patient, spectacle prescription, notion on astigmatism, and information on tear production rate) and an associated three-valued dependent variable encoding lens prescription for the patient (hard contact lenses, soft contact lenses, no lenses). Feature descriptions could use one letter only, which makes the header of this data set read as::
 
    age       prescription  astigmatic    tear_rate     lenses
    d         d             d             d             d 
@@ -32,17 +32,17 @@ Values are tab-limited. The data set has four attributes (age of the patient, sp
 
 The rest of the table gives the data. Note that there are 5
 instances in our table above (check the original file to see
-other). Orange is rather free in what attribute value names it
-uses, so they do not need all to start with a letter like in our
+the rest). Orange is rather free in what attribute value names it
+uses, so they do not need to all start with a letter like in our
 example.
 
-You may download :download:`lenses.tab <code/lenses.tab>` to a target directory and there open a python shell. Alternatively, just execute the code below; this particular data set comes with Orange instalation, and Orange knows where to find it:
+You may download :download:`lenses.tab <code/lenses.tab>` to a target directory and then open a python shell in it. Alternatively, just execute the code below; this particular data set comes as part of Orange instalation, and the program knows where to find it:
 
     >>> import Orange
     >>> data = Orange.data.Table("lenses")
     >>>
 
-Note that for the file name no suffix is needed; as Orange checks if any files in the current directory are of the readable type. The call to ``Orange.data.Table`` creates an object called ``data`` that holds your data set and information about the lenses domain:
+Note that for the file name no suffix is needed; Orange checks if any files in the current directory are of the readable type. The call to ``Orange.data.Table`` creates an object called ``data`` that holds your data set and information about the lenses domain:
 
 >>> print data.domain.features
 <Orange.feature.Discrete 'age', Orange.feature.Discrete 'prescription', Orange.feature.Discrete 'astigmatic', Orange.feature.Discrete 'tear_rate'>
@@ -60,7 +60,7 @@ The following script wraps-up everything we have done so far and lists first 5 d
 
 .. literalinclude:: code/data-lenses.py
 
-Note that data is an object that holds both the data and information on the domain. We show above how to access attribute and class names, but there is much more information there, including that on feature type, set of values for categorical features, and other.
+Note that data is an object that holds both the data and information on the domain. Above, we have shown how to access attribute and class names, but there is much more information there, including that on feature type, set of values for categorical features, and other.
 
 Saving the Data
 ---------------
@@ -70,7 +70,7 @@ Data objects can be saved to a file:
 >>> data.save("new_data.tab")
 >>>
 
-This time, we have to provide the extension for Orange to know which data format to use. An extension for native Orange's data format is ".tab". The following code saves only the data items with myope perscription:
+This time, we have to provide an extension for Orange to know which data format to use. The extension for Orange's native data format is ".tab". The following code saves only data items with myope perscription:
 
 .. literalinclude:: code/data-save.py
 
@@ -88,7 +88,7 @@ Data table object stores information on data instances as well as on data domain
 
 .. literalinclude:: code/data-domain1.py
 
-Orange's objects often behave like Python lists and dictionaries, and can be indexed or accessed through feature names.
+Orange's objects often behave like Python lists and dictionaries and can be indexed or accessed through feature names.
 
 .. literalinclude:: code/data-domain2.py
     :lines: 5-
@@ -101,7 +101,7 @@ Data Instances
 .. index::
    single: data; examples
 
-Data table stores data instances (or examples). These can be index or traversed as any Python list. Data instances can be considered as vectors, accessed through element index, or through feature name.
+Data table stores data instances (or examples). These can be indexed or traversed as any Python list. Data instances can be considered as vectors, accessed through the element index, or through feature name.
 
 .. literalinclude:: code/data-instances1.py
 
@@ -121,7 +121,7 @@ Iris data set we have used above has four continous attributes. Here's a script 
 .. literalinclude:: code/data-instances2.py
    :lines: 3-
 
-Above also illustrates indexing of data instances with objects that store features; in ``d[x]`` variable ``x`` is an Orange object. Here's the output::
+The above example also illustrates indexing of data instances with objects that store features; in ``d[x]`` variable ``x`` is an Orange object. Here's the output::
 
    Feature         Mean
    sepal length    5.84
@@ -130,7 +130,7 @@ Above also illustrates indexing of data instances with objects that store featur
    petal width     1.20
 
 
-Slightly more complicated, but more interesting is a code that computes per-class averages:
+Slightly more complicated, but also more interesting is a code that computes per-class averages:
 
 .. literalinclude:: code/data-instances3.py
    :lines: 3-
@@ -143,7 +143,7 @@ Of the four features, petal width and length look quite discriminative for the t
    petal length               1.46            4.26            5.55
    petal width                0.24            1.33            2.03
 
-Finally, here is a quick code that computes the class distribution for another data set:
+Finally, here is a quick code that computes class distribution for another data set:
 
 .. literalinclude:: code/data-instances4.py
 
@@ -163,11 +163,11 @@ Consider the following exploration of senate voting data set::
    >>> data[2][1].is_special()
    0
 
-The particular data instance included missing data (represented with '?') for first and fourth feature. We can use the method ``is_special()`` to detect parts of the data which is missing. In the original data set file, the missing values are, by default, represented with a blank space. We use the method ``is_special()`` below to examine each feature and report on proportion of instances for which this feature was undefined:
+The particular data instance includes missing data (represented with '?') for the first and the fourth feature. We can use the method ``is_special()`` to detect parts of the data which are missing. In the original data set file, the missing values are, by default, represented with a blank space. We use the method ``is_special()`` below to examine each feature and report on proportion of instances for which this feature was undefined:
 
 .. literalinclude:: code/data-missing.py
 
-First few lines of the output of this script are::
+The first few lines of this script's output are::
 
     2.8% handicapped-infants
    11.0% water-project-cost-sharing
@@ -204,7 +204,7 @@ and inherits the data description (domain) from the original data set. Changing 
 .. index::
    single: feature; selection
 
-By default, ``Orange.data.Domain`` assumes that last feature in argument feature list is a class variable. This can be changed with an optional argument::
+By default, ``Orange.data.Domain`` assumes that the last feature in argument feature list is a class variable. This can be changed with an optional argument::
 
    >>> nd = Orange.data.Domain(data.domain.features[:2], False)
    >>> print nd.class_var
@@ -213,7 +213,7 @@ By default, ``Orange.data.Domain`` assumes that last feature in argument feature
    >>> print nd.class_var
    Orange.feature.Continuous 'sepal width'
 
-The first call to ``Orange.data.Domain`` constructed the classless domain, while the second used the last feature and constructed the domain with one input feature and a continous class.   
+The first call to ``Orange.data.Domain`` constructed a classless domain, while the second used the last feature and constructed the domain with one input feature and a continous class.   
 
 **References**
 
